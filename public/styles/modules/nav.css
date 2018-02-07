@@ -1,0 +1,144 @@
+nav {
+  height: 48px;
+  background: rgba(0,0,0,0.8);
+  transition:1s ease;
+  -moz-transition:1s ease;
+  -webkit-transition:1s ease;
+  top: 0;
+  width: 100%;
+}
+.logoContainer {
+  top: 0;
+  left: 50%;
+  margin-left: -33px;
+  text-align: center;
+  height: 48px;
+  position: absolute;
+}
+#logo {
+  font-family: 'Roboto', sans-serif;
+  color: #FFF;
+  text-decoration: none;
+  line-height: 16px;
+  font-size: 16px;
+  padding-top: 16px;
+  height: 32PX;
+  width: 66px;
+  position: absolute;
+  letter-spacing: 3px;
+}
+#logo:hover {
+  color: #999;
+}
+.flipper {
+  transition: all 0.25s;
+  transform: rotateY(-180deg);
+}
+.flip {
+  display: inline-block; 
+  transition: all 0.25s;
+  transform: rotateY(180deg);
+  margin-right: 3px;
+}
+.hamburger {
+  cursor: pointer;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  transition: all 0.25s;
+  top: 0;
+  left: 0;
+}
+.buns {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 16px;
+  width: 17px;
+  height: 1px;
+  background: #fff;
+  transform: rotate(0);
+  transition: all 0.25s;
+}
+.hamburger:hover .buns {
+  background: #999;
+}
+.top {
+  top: 23px;
+  transform: translateY(-3px);
+}
+.bottom {
+  bottom: 23px;
+  transform: translateY(3px);
+}
+.open {
+  transform: rotate(90deg);
+}
+.open .top {
+  transform: rotate(45deg) translateY(0px);
+}
+.open .bottom {
+  transform: rotate(-45deg) translateY(0px);
+} 
+#hamburgerToggle {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0 48px;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  display: none;
+  -webkit-transition: visibility 0s linear 1s;
+  transition: visibility 0s linear 1s;
+  z-index: 2;
+}
+.flipper, .flip {
+  transition: all 0.25s;
+}
+#hamburgerToggle {
+  background: inherit;
+}
+.darkNav {
+  background: #000;
+}
+.dropDownLink {
+  font-size: 17px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  padding: 13.5px 0;
+  display: block;
+  font-weight: 200;
+}
+.dropDownLink:hover {
+  color: #999;
+}
+.dropDownListItem {
+  height: 44px;
+  border-bottom: 1px solid #333;
+}
+.dropDownList {
+  padding-top: 20px;
+}
+.userContainer {
+  cursor: pointer;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  transition: all 0.25s;
+  top: 0;
+  right: 0;
+}
+#navatarImage {
+  width: 48px;
+  height: 48px;
+}
+.slideOut {
+  right: -48px;
+}
