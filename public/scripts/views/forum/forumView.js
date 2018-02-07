@@ -5,7 +5,7 @@
 
   forumView.init = function(ctx, next) {
 
-    next();
+    // next();
   }
 
   module.forumView = forumView;

@@ -84,6 +84,14 @@
               <form action="#" id="newUserForm">
                 <h1 class="newUserFormTitle">Sign up in seconds</h1>
                 <input type="text" id="username" class="newUserFormInput" name="username" placeholder="ex. crazyCoder">
+                <div id="username-errormsg-and-suggestions" class="hidden" role="alert">
+                    <span role="alert" class="errormsg" id="errormsg-username-exists">That username is taken. Try another.</span>
+                    <div class="username-suggestions" id="username-suggestions">Available: 
+                      <a href=""></a>
+                      <a href=""></a>
+                      <a href=""></a>
+                    </div>
+                </div>
                 <button class="signUpButton" type="submit">Sign Up</button>
               </form>
           </div>
@@ -99,6 +107,7 @@
     <script src="scripts/models/subforum.js"></script>
     <script src="scripts/models/thread.js"></script>
     <script src="scripts/models/user.js"></script>
+    <script src="scripts/views/pageView.js"></script>
     <script src="scripts/views/forum/forumView.js"></script>
     <script src="scripts/views/subforum/subforumView.js"></script>
     <script src="scripts/views/thread/threadView.js"></script>
