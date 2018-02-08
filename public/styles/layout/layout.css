@@ -4,3 +4,9 @@
 .show {
   display: block;
 } 
+.is-visible {
+  visibility: visible;
+}
+.not-visible {
+  visibility: hidden;
+}

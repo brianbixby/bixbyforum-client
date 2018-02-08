@@ -135,7 +135,7 @@ margin-bottom: 0;
   right: -5px;
 }
 
-#newUserForm, #editProfileForm {
+.loginSignupForms, #editProfileForm {
   position: relative;
   margin: 20px auto;
   width: 280px;
@@ -156,7 +156,7 @@ margin-bottom: 0;
   text-shadow: 0 1px rgba(255, 255, 255, 0.75);
   background: #f7f7f7;
 }
-#newUserForm:before, #newUserForm:after, #editProfileForm:before, #editProfileForm:after {
+.loginSignupForms:before, .loginSignupForms:after, #editProfileForm:before, #editProfileForm:after {
   content: '';
   position: absolute;
   bottom: 1px;
@@ -167,7 +167,7 @@ margin-bottom: 0;
   border-bottom: 1px solid #d2d2d2;
   border-radius: 4px;
 }
-#newUserForm:after, #editProfileForm:after {
+.loginSignupForms:after, #editProfileForm:after {
   bottom: 3px;
   border-color: #dcdcdc;
 }
@@ -220,4 +220,23 @@ margin-bottom: 0;
   top: 1px;
   outline: none;
   box-shadow: none;
+}
+
+.username-errormsg-and-suggestions.is-visible, .loginSignupForms.is-visible{
+  visibility: visible;
+}
+
+.username-errormsg-and-suggestions {
+  margin-bottom: 25px;
+}
+.errormsg {
+color: #dd4b39;
+}
+.username-suggestions {
+  margin: 5px 0 15px;
+  color: #666;
+}
+.username-suggestions a{
+  color: #15c;
+  margin-left: 13px;
 }

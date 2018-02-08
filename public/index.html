@@ -25,8 +25,8 @@
         </section>
         <section id="hamburgerToggle">
             <ul class="dropDownList">
-                <li class="dropDownListItem notLoggedIn"><a id="login" class="dropDownLink notLoggedIn" href="">Login</a></li>
-                <li class="dropDownListItem notLoggedIn"><a id="signup" class="dropDownLink notLoggedIn" href="">Signup</a></li>
+                <li class="dropDownListItem notLoggedIn"><a id="login" class="dropDownLink notLoggedIn signUpLoginButtons removeEventListeners" data-id="login" data-form="userLoginForm" data-modal="sign-up-moodal" data-submit="app.pageView.userLogin" href="">Login</a></li>
+                <li class="dropDownListItem notLoggedIn"><a id="signup" class="dropDownLink notLoggedIn signUpLoginButtons removeEventListeners" data-id="signup" data-form="newUserForm" data-modal="sign-up-moodal" data-submit="app.pageView.newUserSubmit" href="">Signup</a></li>
                 <li class="dropDownListItem loggedIn"><a id="loggedInUser" class="dropDownLink loggedIn" href="">Edit Profile</a></li>
                 <li class="dropDownListItem loggedIn"><a id="logoutButton" class="dropDownLink loggedIn" href="">Logout</a></li>
             </ul>
@@ -80,11 +80,11 @@
       <div class="modal-wrapper modal-transition">
         <div class="modal-body">
           <div class="modal-content">
-              <button class="modal-close sign-up-moodal-toggle"><svg class="icon-close icon" viewBox="0 0 32 32"><use xlink:href="#icon-close"></use></svg></button>
-              <form action="#" id="newUserForm">
+              <button class="modal-close sign-up-moodal-toggle hidden"><svg class="icon-close icon" viewBox="0 0 32 32"><use xlink:href="#icon-close"></use></svg></button>
+              <form action="#" id="newUserForm" class="loginSignupForms removeEventListeners newUserForm hidden">
                 <h1 class="newUserFormTitle">Sign up in seconds</h1>
-                <input type="text" id="username" class="newUserFormInput" name="username" placeholder="ex. crazyCoder">
-                <div id="username-errormsg-and-suggestions" class="hidden" role="alert">
+                <input type="text" id="usernameSignup" class="newUserFormInput" name="username" placeholder="ex. crazyCoder">
+                <div id="username-errormsg-and-suggestions" class="username-errormsg-and-suggestions hidden" role="alert">
                     <span role="alert" class="errormsg" id="errormsg-username-exists">That username is taken. Try another.</span>
                     <div class="username-suggestions" id="username-suggestions">Available: 
                       <a href=""></a>
@@ -94,6 +94,19 @@
                 </div>
                 <button class="signUpButton" type="submit">Sign Up</button>
               </form>
+
+              <form action="#" id="userLoginForm" class="loginSignupForms removeEventListeners userLoginForm hidden">
+                <h1 class="newUserFormTitle">Sign in</h1>
+                <input type="text" id="usernameLogin" class="newUserFormInput" name="username" placeholder="ex. crazyCoder">
+                <div id="login-username-errormsg" class="username-errormsg-and-suggestions hidden" role="alert">
+                    <span role="alert" class="errormsg" id="errormsg-username-doesnt-exist">That username is does not exist.</span>
+                    <div class="username-suggestions" id="login-username-suggestion">Create Account: 
+                      <a href=""></a>
+                    </div>
+                </div>
+                <button class="signUpButton" type="submit">Sign In</button>
+              </form>
+
           </div>
         </div>
       </div>
