@@ -4,8 +4,15 @@
   const pageView = {};
 
   pageView.init = function(ctx, next) {
-    $('.view').find('*').off();
+    $('.view').addClass('hidden').find('*').off();
     $('.removeEventListeners').off();
+    $('.loggedInUser').on('click', function() {
+      $('.flipping').toggleClass('flip');
+      $('.hamburger').toggleClass('open');
+      $('#hamburgerToggle').slideToggle(500);
+      $('nav').toggleClass('darkNav');
+      $('.userContainer').toggleClass('slideOut');
+    });
     $('.signUpLoginButtons').on('click', function(e) {
       e.preventDefault();
       $(`#${$(this).data('modal')}`).toggleClass('is-visible');

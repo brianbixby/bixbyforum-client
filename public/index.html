@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="styles/modules/nav.css">
     <link rel="stylesheet" href="styles/modules/modal.css">
     <link rel="stylesheet" href="styles/state/state.css">
+    <!-- USER PROFILE TEMPLATE -->
+    <script id="user-profile-template" type="text/x-handlebars-template">
+      <img class="profile_picture" src="{{profile_picture}}" alt="">
+      <p class="userProfile-userName"><span class="userProfile-first_name">{{first_name}}</span> <span class="userProfile-last_name">{{last_name}}</span><span class="userProfile-role">  |  {{role}}</span></p>
+      <p class="userProfile-email">Email: {{email}} </p>
+      <p class="userProfile-user_name">Username: {{user_name}}</p>              
+      <p class="userProfile-user_stats">Member since: {{created_on}} | {{comment_count}} commments</p>
+      <p class="userProfile-interests">Interests: {{Interests}}</p>
+    </script>
+
   </head>
   <body>
     <svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="768" height="800" viewBox="0 0 768 800"><defs><g id="icon-close"><path class="path1" d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path></g></defs></svg>
@@ -27,14 +37,14 @@
             <ul class="dropDownList">
                 <li class="dropDownListItem notLoggedIn"><a id="login" class="dropDownLink notLoggedIn signUpLoginButtons removeEventListeners" data-id="login" data-form="userLoginForm" data-modal="sign-up-moodal" data-submit="app.pageView.userLogin" href="">Login</a></li>
                 <li class="dropDownListItem notLoggedIn"><a id="signup" class="dropDownLink notLoggedIn signUpLoginButtons removeEventListeners" data-id="signup" data-form="newUserForm" data-modal="sign-up-moodal" data-submit="app.pageView.newUserSubmit" href="">Signup</a></li>
-                <li class="dropDownListItem loggedIn"><a id="loggedInUser" class="dropDownLink loggedIn" href="">Edit Profile</a></li>
+                <li class="dropDownListItem loggedIn"><a id="loggedInUser" class="dropDownLink loggedIn loggedInUser removeEventListeners" href="">Edit Profile</a></li>
                 <li class="dropDownListItem loggedIn"><a id="logoutButton" class="dropDownLink loggedIn" href="">Logout</a></li>
             </ul>
         </section>
         <section class="logoContainer">
             <a id="logo"href='/'><span class="flip flipping">B</span><span class="notFlip">IXBY</span></a>
         </section>
-        <section class="userContainer loggedIn">
+        <section class="userContainer loggedIn hidden">
           <a id="navatarImageLink" href="">
             <img id="navatarImage" src="">
           </a>
@@ -60,11 +70,41 @@
         </section>
 
         <section id="userView" class="view userView hidden">
+          <div id="userProfile">
 
+          </div>
+          <a id="editProfileButton" href="">Edit Profile</a>
         </section>
 
         <section id="editUserView" class="view editUserView hidden">
-
+          <form action="#" id="editProfileForm">
+            <fieldset>
+              <label for="editUserProfile-user_name">Username: </label>
+              <input type="text" id="editUserProfile-user_name" name="editUserProfile-user_name">
+            </fieldset>
+            <fieldset>
+              <label for="editUserProfile-email">Email: </label>
+              <input type="text" id="editUserProfile-email" name="editUserProfile-email"></textarea>
+            </fieldset>
+            <fieldset>
+                <label for="editUserProfile-first_name">First Name: </label>
+                <input type="text" id="editUserProfile-first_name" name="editUserProfile-first_name">
+            </fieldset>
+            <fieldset>
+                <label for="editUserProfile-last_name">Last Name: </label>
+                <input type="text" id="editUserProfile-last_name" name="editUserProfile-last_name">
+            </fieldset>
+            <fieldset>
+                <label for="editUserProfile-profile_picture">Profile Picture URL: </label>
+                <input type="text" id="editUserProfile-profile_picture" name="editUserProfile-profile_picture">
+            </fieldset>
+            <fieldset>
+                <label for="editUserProfile-interests">Interests: </label>
+                <textarea rows="6" id="editUserProfile-interests" name="editUserProfile-interests"></textarea>
+            </fieldset>
+            <button id="editProfileButton" type="submit">Update</button>
+          </form>
+          <button id="deleteProfileButton">Delete Profile</button>
         </section>
 
         <section id="errorView" class="view errorView hidden">
