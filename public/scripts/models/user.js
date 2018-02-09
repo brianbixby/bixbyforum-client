@@ -166,6 +166,33 @@ const __API_URL__ = 'http://localhost:3737';
     });
   }
 
+  User.prototype.update = function() {
+    console.log('hi');
+    let user = new app.User({
+        user_name: $('#editUserProfile-user_name').val(),
+        email: $('#editUserProfile-email').val(),
+        first_name: $('#editUserProfile-first_name').val(),
+        last_name: $('#editUserProfile-last_name').val(),
+        profile_picture: $('#editUserProfile-profile_picture').val(), 
+        interests: $('#editUserProfile-interests').val()
+    });
+    console.log(currentUserName);
+    $.ajax({
+      url: `${__API_URL__}/api/db/users/${localStorage.currentUserName}`,
+      method: 'PUT',
+      data: {first_name: user.first_name, last_name: user.last_name, email: user.email,
+        user_name: user.user_name, interests: user.interests, profile_picture:  user.profile_picture},
+      success: results => {
+        console.log(results);
+        localStorage.currentUserName = results.user_name;
+        localStorage.currentUserPicture = results.profile_picture;
+        currentUserName = results.user_name;
+        page.show(`/user/${results.user_name}`);
+      },
+      //error: app.errorView.init,
+    });
+  }
+
   User.prototype.delete = function() {
     $.ajax({
       url: `${__API_URL__}/api/db/users/${currentUserName}`,

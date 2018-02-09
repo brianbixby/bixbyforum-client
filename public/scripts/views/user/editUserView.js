@@ -5,7 +5,10 @@
 
   editUserView.init = function(ctx, next) {
     $('.editUserView').removeClass('hidden');
-    // $('#editProfileButton').on('click', app.User.prototype.update);
+    $('#updateProfileButton').on('click', function(e) {
+      e.preventDefault();
+      app.User.prototype.update();
+    });
     $('#deleteProfileButton').on('click', app.User.prototype.delete);
     next();
   }
